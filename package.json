@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"grunt-contrib-imagemin",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "grunt-contrib-imagemin",
+    "description": "api documentation for [grunt-contrib-imagemin (v1.0.1)](https://github.com/gruntjs/grunt-contrib-imagemin#readme) [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-contrib-imagemin.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-contrib-imagemin) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-imagemin.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-imagemin)",
     "devDependencies": {
-        "grunt-contrib-imagemin": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "grunt-contrib-imagemin": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-grunt-contrib-imagemin",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-grunt-contrib-imagemin",
+    "keywords": [
+        "documentation",
+        "grunt-contrib-imagemin"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_grunt_contrib_imagemin.js",
+    "name": "npmdoc-grunt-contrib-imagemin",
+    "nameAlias": "npmdoc_grunt_contrib_imagemin",
+    "nameOriginal": "npmdoc-grunt-contrib-imagemin",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-grunt-contrib-imagemin.git"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
