@@ -61,12 +61,108 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.grunt-contrib-imagemin">module grunt-contrib-imagemin</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-contrib-imagemin.grunt-contrib-imagemin">
+            function <span class="apidocSignatureSpan"></span>grunt-contrib-imagemin
+            <span class="apidocSignatureSpan">(grunt)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.grunt-contrib-imagemin" id="apidoc.module.grunt-contrib-imagemin">module grunt-contrib-imagemin</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-contrib-imagemin.grunt-contrib-imagemin" id="apidoc.element.grunt-contrib-imagemin.grunt-contrib-imagemin">
+        function <span class="apidocSignatureSpan"></span>grunt-contrib-imagemin
+        <span class="apidocSignatureSpan">(grunt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">grunt-contrib-imagemin = function (grunt) {
+    grunt.registerMultiTask(&#x27;imagemin&#x27;, &#x27;Minify PNG, JPEG, GIF and SVG images&#x27;, function () {
+        var done = this.async();
+        var files = this.files;
+        var totalSaved = 0;
+        var options = this.options({
+            interlaced: true,
+            optimizationLevel: 3,
+            progressive: true
+        });
+
+        async.eachLimit(files, os.cpus().length, function (file, next) {
+            var msg;
+            var imagemin = new Imagemin()
+                .src(file.src[0])
+                .dest(path.dirname(file.dest))
+                .use(Imagemin.jpegtran(options))
+                .use(Imagemin.gifsicle(options))
+                .use(Imagemin.optipng(options))
+                .use(Imagemin.svgo({plugins: options.svgoPlugins || []}));
+
+            if (options.use) {
+                options.use.forEach(imagemin.use.bind(imagemin));
+            }
+
+            if (path.basename(file.src[0]) !== path.basename(file.dest)) {
+                imagemin.use(rename(path.basename(file.dest)));
+            }
+
+            fs.stat(file.src[0], function (err, stats) {
+                if (err) {
+                    grunt.warn(err + &#x27; in file &#x27; + file.src[0]);
+                    return next();
+                }
+
+                imagemin.run(function (err, data) {
+                    if (err) {
+                        grunt.warn(err + &#x27; in file &#x27; + file.src[0]);
+                        return next();
+                    }
+
+                    var origSize = stats.size;
+                    var diffSize = origSize - ((data[0].contents &#x26;&#x26; data[0].contents.length) || 0);
+
+                    totalSaved += diffSize;
+
+                    if (diffSize &#x3c; 10) {
+                        msg = &#x27;already optimized&#x27;;
+                    } else {
+                        msg = [
+                            &#x27;saved &#x27; + prettyBytes(diffSize) + &#x27; -&#x27;,
+                            (diffSize / origSize * 100).toFixed() + &#x27;%&#x27;
+                        ].join(&#x27; &#x27;);
+                    }
+
+                    grunt.verbose.writeln(chalk.green(&#x27;✔ &#x27;) + file.src[0] + chalk.gray(&#x27; (&#x27; + msg + &#x27;)&#x27;));
+                    process.nextTick(next);
+                });
+            });
+        }, function (err) {
+            if (err) {
+                grunt.warn(err);
+            }
+
+            var msg = [
+                &#x27;Minified &#x27; + files.length,
+                files.length === 1 ? &#x27;image&#x27; : &#x27;images&#x27;,
+                chalk.gray(&#x27;(saved &#x27; + prettyBytes(totalSaved) + &#x27;)&#x27;)
+            ].join(&#x27; &#x27;);
+
+            grunt.log.writeln(msg);
+            done();
+        });
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 
