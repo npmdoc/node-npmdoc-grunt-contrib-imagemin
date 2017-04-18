@@ -1,9 +1,14 @@
-# api documentation for  [grunt-contrib-imagemin (v1.0.1)](https://github.com/gruntjs/grunt-contrib-imagemin#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-contrib-imagemin.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-contrib-imagemin) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-imagemin.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-imagemin)
+# npmdoc-grunt-contrib-imagemin
+
+#### api documentation for  [grunt-contrib-imagemin (v1.0.1)](https://github.com/gruntjs/grunt-contrib-imagemin#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-contrib-imagemin.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-contrib-imagemin) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-imagemin.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-imagemin)
+
 #### Minify images
 
-[![NPM](https://nodei.co/npm/grunt-contrib-imagemin.png?downloads=true)](https://www.npmjs.com/package/grunt-contrib-imagemin)
+[![NPM](https://nodei.co/npm/grunt-contrib-imagemin.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/grunt-contrib-imagemin)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-grunt-contrib-imagemin/build/screenCapture.buildNpmdoc.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmdoc%252Fnode-npmdoc-grunt-contrib-imagemin%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-grunt-contrib-imagemin/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-grunt-contrib-imagemin/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-grunt-contrib-imagemin/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-grunt-contrib-imagemin/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-grunt-contrib-imagemin/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-grunt-contrib-imagemin/build/screenCapture.npmPackageListing.svg)
 
@@ -151,37 +156,29 @@
     "main": "tasks/imagemin.js",
     "maintainers": [
         {
-            "name": "sindresorhus",
-            "email": "sindresorhus@gmail.com"
+            "name": "sindresorhus"
         },
         {
-            "name": "cowboy",
-            "email": "cowboy@rj3.net"
+            "name": "cowboy"
         },
         {
-            "name": "tkellen",
-            "email": "tyler@sleekcode.net"
+            "name": "tkellen"
         },
         {
-            "name": "shama",
-            "email": "kyle@dontkry.com"
+            "name": "shama"
         },
         {
-            "name": "vladikoff",
-            "email": "vlad@vladikoff.com"
+            "name": "vladikoff"
         },
         {
-            "name": "jmeas",
-            "email": "jellyes2@gmail.com"
+            "name": "jmeas"
         },
         {
-            "name": "kevva",
-            "email": "kevinmartensson@gmail.com"
+            "name": "kevva"
         }
     ],
     "name": "grunt-contrib-imagemin",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/gruntjs/grunt-contrib-imagemin.git"
@@ -192,16 +189,6 @@
     "version": "1.0.1"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module grunt-contrib-imagemin](#apidoc.module.grunt-contrib-imagemin)
-
-
-
-# <a name="apidoc.module.grunt-contrib-imagemin"></a>[module grunt-contrib-imagemin](#apidoc.module.grunt-contrib-imagemin)
 
 
 
